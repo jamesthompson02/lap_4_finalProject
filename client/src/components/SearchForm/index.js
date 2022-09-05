@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
+import axios from 'axios';
 import Btn from '../Btn';
-import './style.css';
+import '../../pages/DashboardPage/dashboard.css';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { updateArtist, updateGenres, updateTrack, updateArtistSpotifyURI, updateTrackSpotifyURI, updateFromLanguage, updateToLanguage } from '../../actions';
