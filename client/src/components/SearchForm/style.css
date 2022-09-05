@@ -1,16 +1,10 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700"); 
 
-.logo {
-    padding-top: 4%;
-    font-family: 'Roboto', sans-serif;
-    margin-left: 5%;
-    color: white;
-    font-size: 2.5rem;
-}
-
 
 .dashForm {
+    display: flex;
+    justify-content: center;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -98,4 +92,9 @@ option {
     display: flex;
     justify-content: center;
 
+}
+
+.dashForm{
+    display: flex;
+    justify-content: center;
 }

@@ -1,0 +1,55 @@
+1662393106863	geckodriver	INFO	Listening on 127.0.0.1:7885
+1662393109916	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "7886" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\chanj\\AppData\\Local\\Temp\\rust_mozprofile6L3rNA"
+1662393110669	Marionette	INFO	Marionette enabled
+1662393110678	Marionette	INFO	Listening on port 7895
+WebDriver BiDi listening on ws://localhost:7886
+Read port: 7895
+1662393110875	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\chanj\\AppData\\Local\\Temp\\rust_mozprofile6L3rNA\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:7886/devtools/browser/096ef151-8fff-4f4e-9a3f-c33d76e18a98
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 5065 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1662393118047	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1662393120378	Marionette	INFO	Stopped listening on port 7895
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1662393193229	geckodriver	INFO	Listening on 127.0.0.1:4881
+1662393196278	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "4882" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\chanj\\AppData\\Local\\Temp\\rust_mozprofileD2gcrv"
+1662393197125	Marionette	INFO	Marionette enabled
+1662393197136	Marionette	INFO	Listening on port 4891
+WebDriver BiDi listening on ws://localhost:4882
+Read port: 4891
+1662393197366	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\chanj\\AppData\\Local\\Temp\\rust_mozprofileD2gcrv\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:4882/devtools/browser/7824ca6d-63a3-4bbb-9504-d9fc7643d848
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 1598 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1662393203896	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1662393206284	Marionette	INFO	Stopped listening on port 4891
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1662393396388	geckodriver	INFO	Listening on 127.0.0.1:1086
+1662393399439	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "1087" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\chanj\\AppData\\Local\\Temp\\rust_mozprofileW8se2h"
+1662393400136	Marionette	INFO	Marionette enabled
+1662393400149	Marionette	INFO	Listening on port 1096
+WebDriver BiDi listening on ws://localhost:1087
+Read port: 1096
+1662393400361	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\chanj\\AppData\\Local\\Temp\\rust_mozprofileW8se2h\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:1087/devtools/browser/4dbac691-81cc-4020-8402-c7cfc179fbba
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 1796 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1662393406284	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1662393408518	Marionette	INFO	Stopped listening on port 1096
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1662395087214	geckodriver	INFO	Listening on 127.0.0.1:4996
+1662395090313	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--remote-debugging-port" "4997" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\chanj\\AppData\\Local\\Temp\\rust_mozprofileZHLypl"
+*** You are running in headless mode.
+1662395091389	Marionette	INFO	Marionette enabled
+1662395091403	Marionette	INFO	Listening on port 5008
+Read port: 5008
+WebDriver BiDi listening on ws://localhost:4997
+1662395091633	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\chanj\\AppData\\Local\\Temp\\rust_mozprofileZHLypl\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:4997/devtools/browser/6321c6e4-5e90-4df2-b455-e8485b5b50ce
+JavaScript warning: https://pagead2.googlesyndication.com/bg/CgETvhyXIYksjpVuZOiCWYZFr3TNicAtz6hsjYVMHCQ.js line 2 > eval line 7327 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1662395101822	Marionette	INFO	Stopped listening on port 5008
