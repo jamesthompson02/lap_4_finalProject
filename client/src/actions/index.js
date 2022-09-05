@@ -26,6 +26,29 @@ export const updateTrackSpotifyURI = (trackSpotifyIdentifier) => {
     }
 }
 
+export const updateGenres = (genres) => {
+    return {
+        type: "UPDATE GENRES",
+        payload: genres
+    }
+}
+
+export const updateFromLanguage = (language) => {
+    return {
+        type: "UPDATE FROM LANGUAGE",
+        payload: language
+    }
+}
+
+export const updateToLanguage = (language) => {
+    return {
+        type: "UPDATE TO LANGUAGE",
+        payload: language
+    }
+}
+
+
+
 export const loading = (loadingStatus) => {
     return {
         type: "LOADING",
