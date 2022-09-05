@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import axios from "axios";
 import Btn from '../Btn';
 import './style.css';
 import { useNavigate } from 'react-router-dom';
@@ -48,36 +49,33 @@ const SearchForm = () => {
     }
    
     return (
-        <>
-    
         <div className="dashForm">
-        <form>
-            <div>
-                {/* <label htmlFor='songName'>Song Name:</label> */}
-                <input ref={songNameInput} type="text" id="songName" name="songName" placeholder='Enter Song Name Here'/>
-            
-            
-                {/* <label htmlFor='artistName'>Artist Name:</label> */}
-                <input ref={artistNameInput} type="text" id="songName" name="songName" placeholder='Enter Artist Name Here'/>
-            </div>
-            <div className='chooselang'>
-                <label className='fromTolabel' htmlFor="fromLanguage">From:</label>
-                <select ref={fromLanguage} name="fromLanguage" id="fromLanguage">
-                    <option value="English">English</option>
-                    <option value="Spanish">Spanish</option>
-                </select>
-                <label className='fromTolabel' htmlFor="toLanguage">To:</label>
-                <select ref={toLanguage} name="toLanguage" id="toLanguage">
-                    <option value="Spanish">Spanish</option>
-                    <option value="English">English</option>
-                </select>    
-            </div>
-            <div className='btn-div'><Btn text="Submit" handleClick={test} /></div>
-            
-        </form>
+            <form>
+                <div>
+                    {/* <label htmlFor='songName'>Song Name:</label> */}
+                    <input ref={songNameInput} type="text" id="songName" name="songName" placeholder='Enter Song Name Here'/>
+                
+                
+                    {/* <label htmlFor='artistName'>Artist Name:</label> */}
+                    <input ref={artistNameInput} type="text" id="songName" name="songName" placeholder='Enter Artist Name Here'/>
+                </div>
+                <div className='chooselang'>
+                    <label className='fromTolabel' htmlFor="fromLanguage">From:</label>
+                    <select ref={fromLanguage} name="fromLanguage" id="fromLanguage">
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                    </select>
+                    <label className='fromTolabel' htmlFor="toLanguage">To:</label>
+                    <select ref={toLanguage} name="toLanguage" id="toLanguage">
+                        <option value="Spanish">Spanish</option>
+                        <option value="English">English</option>
+                    </select>    
+                </div>
+                <div className='btn-div'><Btn text="Submit" handleClick={test} /></div>
+                
+            </form>
         </div>
 
-        </>
     );
 
     
