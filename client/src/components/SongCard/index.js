@@ -1,5 +1,5 @@
 import react from 'react';
-import './songCard.css'
+import './songCard.css' //
 function SongCard({title, artist, albumArtUrl, album}) {
     return (
         <div className ='recommended-container'>
