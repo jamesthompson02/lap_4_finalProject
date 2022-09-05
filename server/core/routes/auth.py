@@ -55,9 +55,15 @@ def register():
         new_user = User(username=username, email=email, password=password)
 
         db.session.add(new_user)
-        db.session.commit() 
+        db.session.commit()
+
+        # generate token with encoded user data
+        token = jwt.encode({
+            "username": new_user.username,
+            "exp": datetime.utcnow() + timedelta(days=7)
+        }, app.config["SECRET_KEY"], algorithm="HS256") 
         
-        return jsonify({'msg': 'user successfully registered', 'user':new_user.username}), 201
+        return jsonify({'msg': 'user successfully registered', 'user':new_user.username, "token":token}), 201
     except:
         return jsonify({'msg': 'registration unsuccessful'}), 400
 
