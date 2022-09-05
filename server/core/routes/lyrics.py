@@ -4,7 +4,7 @@ from ..helpers.youtube import search_youtube_url
 
 lyrics_routes = Blueprint('lyrics', __name__)
 
-@lyrics_routes.route('/')
+@lyrics_routes.route('/', methods=["POST"])
 def home():
         song_name = request.json["song-name"]
         artist_name = request.json["artist-name"]
