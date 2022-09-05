@@ -8,6 +8,7 @@ from .database.db import db
 
 from .routes.auth import auth_routes
 from .routes.lyrics import lyrics_routes
+from .routes.spotify_api import spotify_api
 
 
 # Load environment variables
@@ -39,6 +40,7 @@ db.create_all()
 
 app.register_blueprint(auth_routes, url_prefix='/auth')
 app.register_blueprint(lyrics_routes, url_prefix='/lyrics') 
+app.register_blueprint(spotify_api, url_prefix='/spotify')
 
 ## Main
 

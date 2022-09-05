@@ -20,8 +20,15 @@ const SearchForm = () => {
   
     const test = async (e) => {
         e.preventDefault();
+        if (songNameInput.current.value === "") {
+            return alert("Please input a song name to search");
+        } else if (artistNameInput.current.value === "") {
+            return alert("Please input an artist name to search");
+        } else if (fromLanguage.current.value === toLanguage.current.value) {
+            return alert("Please ensure you have selected two different languages")
+        }
         try {
-            const { data } = await axios.post('http://localhost:8000/first', {
+            const { data } = await axios.post('http://localhost:8000/spotify/', {
                 "songName": songNameInput.current.value,
                 "artistName": artistNameInput.current.value,
                 "fromLanguage": fromLanguage.current.value,
@@ -30,6 +37,7 @@ const SearchForm = () => {
             const artistSpotifyId = data[0];
             const trackSpotifyId = data[1];
             const genres = data[2];
+            console.log(artistSpotifyId, trackSpotifyId, genres);
             dispatch(updateArtist(artistNameInput.current.value));
             dispatch(updateTrack(songNameInput.current.value));
             dispatch(updateGenres(genres));
@@ -41,7 +49,7 @@ const SearchForm = () => {
             newString += songNameInput.current.value;
             newString += artistNameInput.current.value;
             const urlencode = encodeURIComponent(newString)
-            navigator(`room/${urlencode}`);
+            navigator(`../room/${urlencode}`, { replace: true});
         } catch(err){
             alert(err);
         }
