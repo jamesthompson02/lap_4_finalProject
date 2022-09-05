@@ -1,7 +1,13 @@
 import React, { useRef } from 'react';
+<<<<<<< HEAD
 // import Btn from '../Btn';
 import './style.css';
 import axios from 'axios';
+=======
+import axios from 'axios';
+import Btn from '../Btn';
+import '../../pages/DashboardPage/dashboard.css';
+>>>>>>> 828bbb1e0de7eca14c307a81297e2fa36dfe400f
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { updateArtist, updateGenres, updateTrack, updateArtistSpotifyURI, updateTrackSpotifyURI, updateFromLanguage, updateToLanguage } from '../../actions';
