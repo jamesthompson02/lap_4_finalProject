@@ -5,8 +5,10 @@ from flask_cors import CORS, cross_origin
 
 from .database.db import db
 
-# from .routes.main import main_routes
+
 from .routes.auth import auth_routes
+from .routes.lyrics import lyrics_routes
+
 
 # Load environment variables
 
@@ -34,8 +36,10 @@ db.app = app
 db.init_app(app)
 db.create_all()
 
-# app.register_blueprint(main_routes) # Actually link the planned routes to the app
+
 app.register_blueprint(auth_routes, url_prefix='/auth')
+app.register_blueprint(lyrics_routes, url_prefix='/lyrics') 
+
 ## Main
 
 if __name__ == "__main__":
