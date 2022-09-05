@@ -6,7 +6,7 @@ function SongCard({title, artist, albumArtUrl, album}) {
 
         <div className = 'card-container'>
             <div className= 'image-container'>
-            <img src={albumArtUrl} alt='albumart'/>
+            <img  className='img1' src={albumArtUrl} alt='albumart'/>
             </div>
             <div className = 'card-content'>
             <div className= 'song-title'>
@@ -18,7 +18,7 @@ function SongCard({title, artist, albumArtUrl, album}) {
             <div className= 'Album'>
                 <h3>{album}</h3>
             </div>
-            </div>
+            </div> 
             
         </div>
     )

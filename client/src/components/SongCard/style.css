@@ -10,6 +10,8 @@
     background-color: rgb(30, 29, 29) ;
     color: white;
     border-radius: 5px;
+    min-height: 295px;
+    
 }
 
 .card-container:hover{
@@ -19,9 +21,15 @@
 }
 
 .image-container{
-    overflow: hidden;
-    height: 300px;
+    /* overflow: hidden; */
+    height: auto;
     border-radius: 5px;
+
+}
+
+.img1 {
+    height: auto;
+    width: 100%;
 }
 
 .card-content{
@@ -31,4 +39,8 @@
 .recommended-container{
     display: flex;
     flex-direction: row;
+}
+
+.song-title {
+   white-space: initial;
 }
