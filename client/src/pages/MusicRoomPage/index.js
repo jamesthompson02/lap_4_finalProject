@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import RoomTitleCard from '../../components/RoomTitleCard';
 import axios from 'axios';
 
 const MusicRoomPage = () => {
@@ -35,7 +36,7 @@ const MusicRoomPage = () => {
     }, []);
     return (
         <div>
-            <h1 style={{color: "white"}}>{artistName} - {trackName}</h1>
+            <RoomTitleCard />
             
         </div>
     );
