@@ -11,23 +11,23 @@ const DashboardPage = () => {
     return (
         <>
             <div>
-                <h2 classNameName='logo'>musica</h2>
+                <h2 className='logo'>musica</h2>
             </div>
 
             {/* form  */}
             <SearchForm />
-            <div classNameNameName='recommend-container'>
-            <ul classNameNameName="grid-container">
-            <li classNameName="grid-item">
+            <div className='recommend-container'>
+            <ul className="grid-container">
+            <li className="grid-item">
             <SongCard  title='Hello' artist='Adele' albumArtUrl='https://upload.wikimedia.org/wikipedia/en/8/85/Adele_-_Hello_%28Official_Single_Cover%29.png' album='25'/>    
             </li>
-            <li classNameName="grid-item">
+            <li className="grid-item">
             <SongCard  title='wef' artist='Adele' albumArtUrl='https://upload.wikimedia.org/wikipedia/en/8/85/Adele_-_Hello_%28Official_Single_Cover%29.png' album='25'/>    
             </li>
-            <li classNameName="grid-item">
+            <li className="grid-item">
             <SongCard  title='erge' artist='Adele' albumArtUrl='https://upload.wikimedia.org/wikipedia/en/8/85/Adele_-_Hello_%28Official_Single_Cover%29.png' album='25'/>    
             </li>
-            <li classNameName="grid-item">
+            <li className="grid-item">
             <SongCard  title='ege' artist='Adele' albumArtUrl='https://upload.wikimedia.org/wikipedia/en/8/85/Adele_-_Hello_%28Official_Single_Cover%29.png' album='25'/>    
             </li>
             
