@@ -13,9 +13,21 @@ gunicorn = "*"
 flask-jwt-extended = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
+pyjwt = "*"
+werkzeug = "*"
+selenium = "*"
+webdriver-manager = "*"
+beautifulsoup4 = "*"
+pytube = "*"
+lxml = "*"
 
 [dev-packages]
 pytest = "*"
 
 [requires]
 python_version = "3.10"
+
+[scripts]
+init_db = "python init_db.py"
+dev = "flask run -p 7777"
+start = "gunicorn core:app --bind=127.0.0.1:8000"
