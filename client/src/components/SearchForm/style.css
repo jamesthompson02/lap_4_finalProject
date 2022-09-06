@@ -31,17 +31,18 @@ label {
     
 } 
 
-.fromTolabel {
+/* .fromTolabel {
     display: inline; 
-    font-size:1.2rem ;/* remove this for desktop design */
+    font-size:1.2rem ;
     width: 2em;
     margin-left: 1em;
+    
 }
 
 .chooselang {
     display: flex;
     justify-content: center;
-}
+} */
 
 
 input {

@@ -73,7 +73,7 @@ const SearchForm = () => {
                         <option value="English">English</option>
                         <option value="Spanish">Spanish</option>
                     </select>
-                    <label className='fromTolabel' htmlFor="toLanguage">To:</label>
+                    <label className='tolabel' htmlFor="toLanguage">To:</label>
                     <select ref={toLanguage} name="toLanguage" id="toLanguage">
                         <option value="Spanish">Spanish</option>
                         <option value="English">English</option>
@@ -82,6 +82,7 @@ const SearchForm = () => {
                 <div className='btn-div'><Btn text="Submit" handleClick={test} /></div>
                 
             </form>
+
         </div>
 
     );
