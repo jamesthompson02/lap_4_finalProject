@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {useNavigate} from "react-router-dom";
 import axios from 'axios';
 import "./style.css";
+import { updateArtist, updateGenres, updateTrack, updateArtistSpotifyURI, updateTrackSpotifyURI, updateFromLanguage, updateToLanguage, updateAlbumName, updateAlbumUrl} from '../../actions';
 
-const RecCard = ({title, artist, albumArtUrl, album}) => {
+const RecCard = ({title, titleId, artist, artistId, albumArtUrl, album}) => {
 
-    const [artistSpotifyId, setArtistId ] = useState("");
-    const [trackSpotifyId, setTrackId ] = useState("");
+    const navigator = useNavigate();
+
+    const dispatch = useDispatch();
+
     const [genres, setGenres ] = useState("");
 
-    function setArtist(name) {
-        return setArtistId(name);
-    }
-
-    function setTrack(name) {
-        return setTrackId(name);
-    }
 
     function setGen(name) {
         return setGenres(name);
@@ -23,21 +20,40 @@ const RecCard = ({title, artist, albumArtUrl, album}) => {
 
     const getSpotifyDetails = async () => {
         try{
-            const { data } = await axios.post("http://localhost:8000/spotify/reccard", {
-                 "songName": title,
-                 "artistName": artist
+            
+            const {data} = await axios.post("http://localhost:8000/spotify/artistinfo", {
+                "artistSpotify": artistId
             })
-            console.log(data);
-
+            setGen(data);
 
         } catch(err){
             console.log(err)
         }
     }
 
+    const redirect = () => {
+        dispatch(updateArtist(artist));
+        dispatch(updateTrack(title));
+        dispatch(updateGenres(genres));
+        dispatch(updateArtistSpotifyURI(artistId));
+        dispatch(updateTrackSpotifyURI(titleId));
+        dispatch(updateFromLanguage("English"));
+        dispatch(updateToLanguage("Spanish"));
+        dispatch(updateAlbumName(album));
+        dispatch(updateAlbumUrl(albumArtUrl));
+        let newString = "";
+        newString += title;
+        newString += artist;
+        const urlencode = encodeURIComponent(newString)
+        navigator(`../room/${urlencode}`, { replace: true});
+
+    }
+
+
+
     
     return (
-        <div onLoad={getSpotifyDetails} className = 'card-container2' >
+        <div onLoad={getSpotifyDetails} onClick={redirect} className = 'card-container2' >
             <div className= 'image-container2'>
             <img  className='img12' src={albumArtUrl} alt='albumart'/>
             </div>
