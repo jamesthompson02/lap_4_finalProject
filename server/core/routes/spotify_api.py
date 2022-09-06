@@ -72,11 +72,13 @@ def get_spotify_details():
     # 3 results which have been recommended by Spotify.
 
     artist_spotify_id = artist_data[index_for_track_and_artist]["id"]
+    album_name = track_data[index_for_track_and_artist]["album"]["name"]
+    album_url = track_data[index_for_track_and_artist]["album"]["images"][0]["url"]
     track_spotify_id = track_data[index_for_track_and_artist]["id"]
     artist_genres = artist_data[index_for_track_and_artist]["genres"]
     if len(artist_genres) > 3:
         artist_genres = artist_genres[:3]
     artist_genres = ", ".join(str(x) for x in artist_genres)
     
-    return jsonify(artist_spotify_id, track_spotify_id, artist_genres)
+    return jsonify(artist_spotify_id, track_spotify_id, artist_genres, album_name, album_url)
 
