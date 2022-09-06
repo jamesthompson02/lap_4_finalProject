@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import RoomTitleCard from '../../components/RoomTitleCard';
 import axios from 'axios';
+import RecContainer from '../../components/RecContainer';
 
 const MusicRoomPage = () => {
 
@@ -31,12 +32,13 @@ const MusicRoomPage = () => {
         //     }
         // }
         // postData();
-        console.log(trackSpotifyId, artistSpotifyId, genres);
+        
        
     }, []);
     return (
         <div>
             <RoomTitleCard />
+            <RecContainer />
             
         </div>
     );

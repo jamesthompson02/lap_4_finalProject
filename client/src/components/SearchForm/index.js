@@ -34,7 +34,6 @@ const SearchForm = () => {
                 "fromLanguage": fromLanguage.current.value,
                 "toLanguage": toLanguage.current.value
             })
-            console.log(data)
             const artistSpotifyId = data[0];
             const trackSpotifyId = data[1];
             const genres = data[2];
