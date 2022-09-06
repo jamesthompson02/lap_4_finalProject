@@ -1,5 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --drk-bcg: linear-gradient(#000000 50%, #49236d 90%);
+}
+
+.dark-theme {
+  --drk-bcg: linear-gradient(#000000 50%, #49236d 90%);
+}
+.light-theme {
+  --drk-bcg: linear-gradient(#fff 50%, #6d4d8a 90%);
+}
+
 .main-div-login{
-  background: linear-gradient( #000000 50%, #49236D 90%);
+  background: var(--drk-bcg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
@@ -8,7 +27,6 @@
 .tab{
 color: white;
 }
-
 
 .login-wrap{
 width:100%;
@@ -195,3 +213,4 @@ border: 2px solid #3d1e5c;
 50% { background-position: 400% 0; }
 100% { background-position: 0 0; }
 }
+
