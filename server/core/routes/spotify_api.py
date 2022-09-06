@@ -135,19 +135,41 @@ def get_spotify_recommendations():
 
     return jsonify(recommendations_request_json)
     
-    
-    # API_url = "https://api.spotify.com/v1/search?"
+@spotify_api.route('/reccard', methods=["POST"])
+def get_spotify_reccard_details():
 
-    # data = {
-    #     "q": f"{artist_name} {song_name}",
-    #     "type": "track,artist",
-    #     "limit": 3
-    # }
+    details = request.json
 
-    # encoded_data = urlencode(data)
-    # API_url += encoded_data
-    # spotify_request = requests.get(API_url, headers=API_headers)
-    # spotify_results_json = spotify_request.json()
+    song_name = details["songName"]
+    artist_name = details["artistName"]
+
+    access_token_url = "https://accounts.spotify.com/api/token"
+    client_creds = f"{client_id}:{client_secret}"
+    client_creds_b64 = base64.b64encode(client_creds.encode())
+    headers = {
+        "Authorization": "Basic " + f"{client_creds_b64.decode()}",
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    r = requests.post(access_token_url, 'grant_type=client_credentials', headers=headers)
+    r_json = r.json()
+    access_token = r_json.get("access_token")
+
+    API_headers = {
+        "Authorization": "Bearer " + f"{access_token}"
+    }
+    API_url = "https://api.spotify.com/v1/search?"
+
+    data = {
+        "q": f"{artist_name} {song_name}",
+        "type": "track,artist",
+        "limit": 3
+    }
+
+    encoded_data = urlencode(data)
+    API_url += encoded_data
+    spotify_request = requests.get(API_url, headers=API_headers)
+    spotify_results_json = spotify_request.json()
+
 
     # The following code relates to ensuring that when a user types in a song and artist,
     # they actually get the correct result. For example, if a user looks for the song "Hello"
@@ -156,8 +178,12 @@ def get_spotify_recommendations():
     # being selected is to call the first 3 results and then choose the artist with the highest
     # followers.
 
-    # artist_data = spotify_results_json["artists"]["items"]
-    # track_data = spotify_results_json["tracks"]["items"]
+    artist_data = spotify_results_json["artists"]["items"]
+    track_data = spotify_results_json["tracks"]["items"]
+    print(artist_data, track_data)
+
+    return jsonify(spotify_results_json)
+
     # follower_array = []
     # for each in artist_data:
     #     follower_array.append(each["followers"]["total"])
@@ -177,7 +203,6 @@ def get_spotify_recommendations():
     # artist_genres = ", ".join(str(x) for x in artist_genres)
     
     # return jsonify(artist_spotify_id, track_spotify_id, artist_genres, album_name, album_url)
-
 
 
    
