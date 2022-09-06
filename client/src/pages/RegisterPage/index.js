@@ -62,15 +62,7 @@ const RegisterPage = () => {
         </div>
       </div>
     </div>
-  </div>
-  
-  
-      {/* login page form ends */}
-          <div className='backhome'>
-            
-            </div>
-         
-      
+  </div>    
       </div>
           
     </>
