@@ -55,20 +55,20 @@ const SearchForm = () => {
         <form>
             <div>
                 {/* <label htmlFor='songName'>Song Name:</label> */}
-                <input ref={songNameInput} type="text" id="songName" name="songName" placeholder='Enter Song Name Here'/>
+                <input ref={songNameInput} type="text" id="song-name" name="songName" placeholder='Enter Song Name Here'/>
             
             
                 {/* <label htmlFor='artistName'>Artist Name:</label> */}
-                <input ref={artistNameInput} type="text" id="songName" name="songName" placeholder='Enter Artist Name Here'/>
+                <input ref={artistNameInput} type="text" id="artist-name" name="songName" placeholder='Enter Artist Name Here'/>
             </div>
             <div className='chooselang'>
-                <label className='fromTolabel' htmlFor="fromLanguage">From:</label>
+                <label className='fromlabel' htmlFor="fromLanguage">From:</label>
                 <select ref={fromLanguage} name="fromLanguage" id="fromLanguage">
                     <option value="English">English</option>
                     <option value="Spanish">Spanish</option>
                 </select>
-                <label className='fromTolabel' htmlFor="toLanguage">To:</label>
-                <select ref={toLanguage} name="toLanguage" id="toLanguage">
+                <label className='tolabel' htmlFor="toLanguage">To:</label>
+                <select  ref={toLanguage} name="toLanguage" id="toLanguage">
                     <option value="Spanish">Spanish</option>
                     <option value="English">English</option>
                 </select>    
