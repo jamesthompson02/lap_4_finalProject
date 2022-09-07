@@ -15,7 +15,7 @@ def click_on_page(song_name, artist_name):
         artist_name = "none"   
 
     options = Options()
-    options.headless = True
+    # options.headless = True
     driver = webdriver.Firefox(options=options, service = Service(firefox_installation))
 
     search_URL = f"https://lyricstranslate.com/en/translations/328/42/{artist_name}/{song_name}/none/0/0/0/0"
@@ -23,16 +23,16 @@ def click_on_page(song_name, artist_name):
     print(search_URL)
 
     try:
+        WebDriverWait(driver, 4).until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/button[2]'))).click()
+    except TimeoutException:
+        print("no accept cookie button")
+        pass
+    
+    try:
         WebDriverWait(driver, 1).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="lyricstranslatesearch-searchtranslate-form"]/div/div[2]/table[2]/tbody/tr[1]/td[2]/a'))).click()
     except TimeoutException:
         print("can't click on first search")
         pass  
-
-    try:
-        WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.XPATH,'/html/body/div[1]/div/div/div/div[2]/div/button[2]'))).click()
-    except TimeoutException:
-        print("no accept cookie button")
-        pass
 
     try:
         WebDriverWait(driver, 3).until(EC.element_to_be_clickable((By.XPATH,'//*[@id="lyrics-preview"]/p/a'))).click()
