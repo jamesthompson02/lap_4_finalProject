@@ -29,27 +29,13 @@ document.addEventListener('keyup', controlPrompter);
   return(
 
     <>
+    <div className='mainContainer'> 
     <div className='header'>
       <h2 className='logo'>musica</h2>
     </div>
+ 
 
-    <div className='mainContainer'> 
-
-      <div className='app-desc'>   
-        <section className="wrapper">
-          <div className="sentence">
-            <span>A Music App Where You Can</span>
-            <div className="words rotate">
-              <span>Learn a language !</span>
-              <span>Chill !</span>
-              <span>Inspire !</span>
-              <span>Relax !</span>
-              <span>Party !</span>
-            </div>
-          </div>
-        </section>
-      </div>   
-
+      <div className='app-desc'> 
       <div className="musicnotes">
                 <div className="note-1">
                   ♬
@@ -68,12 +54,31 @@ document.addEventListener('keyup', controlPrompter);
                 </div>
           </div>
             <img className='discImg' src= {vin3}alt='musicdiscimg' /> 
-          </div>
-          <div className='startBtn'>
+          
+          
+        <section className="mid-div">
+          <div className="sentence">
+            <p id="motto">A Music App Where You Can</p>
+            </div>
+            <div className="words-rotate">
+          
+              <span>Chill !</span>
+              <span>Inspire !</span>
+              <span>Relax !</span>
+              <span>Party !</span>
+            </div>
+          
+        </section>
+        <div className='get-started-btn'>
           <button className='glow-on-hover' onClick={handleclick}> Get Started</button>
-          </div>
-      <div className='footer'>
-            All Rights Reserved | musica 2022
+          </div>  
+      </div>   
+
+
+      
+      <div className='homePage-footer'>
+            <p id="home-footer-text">All Rights Reserved | musica 2022</p>
+      </div>
       </div>
 
 

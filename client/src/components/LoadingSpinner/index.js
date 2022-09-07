@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import './styles.css';
 
-const Loder = () => {
+const LoadingSpinner = () => {
 
 
 
 
   return (
-    <div>
+    <div className="loader-main-div">
       <div className="container">
   <span>♫</span>
   <span>♪</span>
@@ -17,4 +18,4 @@ const Loder = () => {
   )
 }
 
-export default Loder
+export default LoadingSpinner

@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import './style.css' //
 
 function SongCard({title, artist, albumArtUrl, album}) {
