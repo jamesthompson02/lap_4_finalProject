@@ -5,7 +5,7 @@ import '../../pages/DashboardPage/dashboard.css';
 import { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { updateArtist, updateGenres, updateTrack, updateArtistSpotifyURI, updateTrackSpotifyURI, updateFromLanguage, updateToLanguage } from '../../actions';
+import { updateArtist, updateGenres, updateTrack, updateArtistSpotifyURI, updateTrackSpotifyURI, updateFromLanguage, updateToLanguage, updateAlbumName, updateAlbumUrl} from '../../actions';
 
 
 const SearchForm = () => {
@@ -38,7 +38,8 @@ const SearchForm = () => {
             const artistSpotifyId = data[0];
             const trackSpotifyId = data[1];
             const genres = data[2];
-            console.log(artistSpotifyId, trackSpotifyId, genres);
+            const albumName = data[3];
+            const albumUrl = data[4];
             dispatch(updateArtist(artistNameInput.current.value));
             dispatch(updateTrack(songNameInput.current.value));
             dispatch(updateGenres(genres));
@@ -46,6 +47,8 @@ const SearchForm = () => {
             dispatch(updateTrackSpotifyURI(trackSpotifyId));
             dispatch(updateFromLanguage(fromLanguage.current.value));
             dispatch(updateToLanguage(toLanguage.current.value));
+            dispatch(updateAlbumName(albumName));
+            dispatch(updateAlbumUrl(albumUrl));
             let newString = "";
             newString += songNameInput.current.value;
             newString += artistNameInput.current.value;
