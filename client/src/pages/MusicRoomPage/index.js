@@ -5,6 +5,8 @@ import RoomTitleCard from '../../components/RoomTitleCard';
 import axios from 'axios';
 import RecContainer from '../../components/RecContainer';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import LyricComponent from '../../components/LyricComponent';
+
 
 const MusicRoomPage = () => {
     const loading = useSelector((state) => state.search.loading);
@@ -25,6 +27,7 @@ const MusicRoomPage = () => {
     return (
         <div>
             <RoomTitleCard />
+            <LyricComponent />
             <RecContainer />
             
         </div>
