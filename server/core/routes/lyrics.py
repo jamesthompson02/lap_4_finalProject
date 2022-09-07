@@ -6,8 +6,8 @@ lyrics_routes = Blueprint('lyrics', __name__)
 
 @lyrics_routes.route('/', methods=["POST"])
 def home():
-        song_name = request.json["song-name"]
-        artist_name = request.json["artist-name"]
+        song_name = request.json["songName"]
+        artist_name = request.json["artistName"]
 
         source = click_on_page(song_name, artist_name)
         english_lyrics = render_lyrics(source, "english")

@@ -115,6 +115,20 @@ export const updateGenres = (genres) => {
   };
 };
 
+export const updateAlbumName = (name) => {
+  return {
+      type: "UPDATE ALBUM NAME",
+      payload: name
+  }
+}
+
+export const updateAlbumUrl = (url) => {
+  return {
+      type: "UPDATE ALBUM URL",
+      payload: url
+  }
+}
+
 export const updateFromLanguage = (language) => {
   return {
     type: "UPDATE FROM LANGUAGE",

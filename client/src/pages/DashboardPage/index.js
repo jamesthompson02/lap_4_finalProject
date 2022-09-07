@@ -7,6 +7,7 @@ import SongCard from "../../components/SongCard";
 // import { NavLink } from 'react-router-dom';
 
 const DashboardPage = () => {
+
   return (
     <>
       <div>
@@ -54,4 +55,5 @@ const DashboardPage = () => {
     </>
   );
 };
+
 export default DashboardPage;
