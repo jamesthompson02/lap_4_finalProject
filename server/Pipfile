@@ -20,7 +20,9 @@ webdriver-manager = "*"
 beautifulsoup4 = "*"
 pytube = "*"
 lxml = "*"
+psycopg2 = "*"
 colorama = "*"
+
 
 [dev-packages]
 pytest = "*"
@@ -33,4 +35,5 @@ init_db = "python init_db.py"
 dev = "flask run -p 7777"
 start = "gunicorn core:app --bind=127.0.0.1:8000"
 startw = "waitress-serve --host 127.0.0.1 --port 8000 core:app"
+
 
