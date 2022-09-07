@@ -1,13 +1,16 @@
 import pytest
 from core import app
-from core.helpers.lyrics import click_on_page
 
 @pytest.fixture
 def api():
-    api = app.test_client()
-    return api
+    client = app.test_client()
+    return client
 
 @pytest.fixture
 def source():
     source = click_on_page('hello', 'adele')
     return source
+
+@pytest.fixture
+def mock_get_sqlalchemy(mocker):
+    mock = mocker.patch("flask_sqlalchemy._QueryProperty.__get__").return_value = mocker.Mock()
