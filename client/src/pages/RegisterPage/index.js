@@ -22,11 +22,7 @@ const RegisterPage = () => {
   const showAlert = useSelector((state) => state.registeredUser.showAlert);
   const [values, setValues] = useState(initialState);
   const [checked] = useState(true);
-  // const [theme, setTheme] = useState(getStorageTheme());
-
-  // const toggleMember = () => {
-  //   setValues({ ...values, isMember: !values.isMember });
-  // };
+ 
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -193,7 +189,7 @@ const RegisterPage = () => {
       </div>
     </>
   );
-};
+}
 
 export default RegisterPage;
 
