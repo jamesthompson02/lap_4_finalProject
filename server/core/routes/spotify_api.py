@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify
+from flask_cors import cross_origin
 from dotenv import load_dotenv
 from os import environ
 import requests
@@ -13,6 +14,7 @@ client_secret=environ.get('client_secret')
 spotify_api = Blueprint('spotify_api', __name__)
 
 @spotify_api.route('/', methods=["POST"])
+@cross_origin(origin='*')
 def get_spotify_details():
     #The following bit of code relates to ensuring that data is received properly from 
     #the front end. 
@@ -83,6 +85,7 @@ def get_spotify_details():
     return jsonify(artist_spotify_id, track_spotify_id, artist_genres, album_name, album_url)
 
 @spotify_api.route('/recommendations', methods=["POST"])
+@cross_origin(origin='*')
 def get_spotify_recommendations():
     #The following bit of code relates to ensuring that data is received properly from 
     #the front end. 
@@ -138,6 +141,7 @@ def get_spotify_recommendations():
 
     
 @spotify_api.route('/reccard', methods=["POST"])
+@cross_origin(origin='*')
 def get_spotify_reccard_details():
 
     details = request.json
@@ -189,6 +193,7 @@ def get_spotify_reccard_details():
 
 
 @spotify_api.route('/artistinfo', methods=["POST"])
+@cross_origin(origin='*')
 def get_spotify_artist_genres():
 
     details = request.json
