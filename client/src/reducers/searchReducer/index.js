@@ -4,6 +4,8 @@ const initState = {
     artist: "",
     artistSpotify: "",
     genres: "",
+    albumName: "",
+    albumArtUrl: "",
     fromLanguage: "",
     toLanguage: "",
     loading: false,
@@ -20,6 +22,10 @@ const searchReducer = (state=initState, action) => {
             return { ...state, track: action.payload, error: false};
         case 'UPDATE TRACK SPOTIFY URI':
             return { ...state, trackSpotify: action.payload, error: false };
+        case 'UPDATE ALBUM NAME':
+            return { ...state, albumName: action.payload, error: false};
+        case 'UPDATE ALBUM URL':
+            return { ...state, albumArtUrl: action.payload, error: false };
         case 'UPDATE GENRES':
             return {...state, genres: action.payload, error: false};
         case 'UPDATE FROM LANGUAGE':

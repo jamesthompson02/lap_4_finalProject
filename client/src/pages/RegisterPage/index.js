@@ -14,6 +14,7 @@ const initialState = {
 };
 
 const RegisterPage = () => {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.registeredUser.user);
@@ -75,6 +76,7 @@ const RegisterPage = () => {
   //   document.documentElement.className = theme;
   //   localStorage.setItem("theme", theme);
   // }, [theme]);
+
 
   const handlebackhome = () => {
     navigate("/");
@@ -193,20 +195,5 @@ const RegisterPage = () => {
   );
 };
 
-// const getStorageTheme = () => {
-//   let theme = "light-theme";
-//   if (localStorage.getItem("theme")) {
-//     theme = localStorage.getItem("theme");
-//   }
-//   return theme;
-// };
-
-//   const toggleTheme = () => {
-//     if (theme === "dark-theme") {
-//       setTheme("light-theme");
-//     } else {
-//       setTheme("dark-theme");
-//     }
-//   };
-
 export default RegisterPage;
+
