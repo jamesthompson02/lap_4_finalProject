@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from os import environ
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 from .database.db import db
@@ -28,9 +28,8 @@ CORS(app)
 db.app = app
 db.init_app(app)
 
-app.register_blueprint(lyrics_routes, url_prefix='/lyrics') # Actually link the planned routes to the app
+app.register_blueprint(lyrics_routes, url_prefix='/lyrics') 
 
-## Main
 
 if __name__ == "__main__":
     app.run(debug=True)
