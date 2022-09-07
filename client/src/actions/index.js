@@ -117,17 +117,17 @@ export const updateGenres = (genres) => {
 
 export const updateAlbumName = (name) => {
   return {
-      type: "UPDATE ALBUM NAME",
-      payload: name
-  }
-}
+    type: "UPDATE ALBUM NAME",
+    payload: name,
+  };
+};
 
 export const updateAlbumUrl = (url) => {
   return {
-      type: "UPDATE ALBUM URL",
-      payload: url
-  }
-}
+    type: "UPDATE ALBUM URL",
+    payload: url,
+  };
+};
 
 export const updateFromLanguage = (language) => {
   return {
@@ -161,5 +161,26 @@ export const errorMesage = (message) => {
   return {
     type: "SET ERROR",
     payload: message,
+  };
+};
+
+export const addToPlaylist = ({ id, title, artist, albumArtUrl, album }) => {
+  const newSong = { id, title, artist, albumArtUrl, album };
+  return {
+    type: "ADD_TO_PLAYLIST",
+    payload: newSong,
+  };
+};
+
+export const removeSong = (id) => {
+  return {
+    type: "REMOVE_SONG",
+    payload: id,
+  };
+};
+
+export const clearPlaylist = () => {
+  return {
+    type: "CLEAR_PLAYLIST",
   };
 };

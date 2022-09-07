@@ -1,31 +1,29 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { addToPlaylist } from "../../actions";
+import { useDispatch } from "react-redux";
 
 // receives a single song as a prop
 // needs to get addToPlaylist Function from addToPlaylistReducer or something
-const AddToPlaylist = () => {
+const AddToPlayList = ({ id, title, artist, album, albumArtUrl }) => {
+  const dispatch = useDispatch();
   const [toggleHeart, setToggleHeart] = useState(false);
-  //   const { _id, colors = [] } = singleSong;
-  //   const { addToCart } = useCartContext();
-  //   const [mainColor, setMainColor] = useState(colors[0]);
-  //   const [amount, setAmount] = useState(1);
 
   const changeIcon = () => {
     setToggleHeart(!toggleHeart);
   };
   const handleAddSong = () => {
-    // put the addToCart function
-    // put changeIcon
+    dispatch(addToPlaylist({ id, title, artist, album, albumArtUrl }));
     changeIcon();
   };
   return (
-    <section className="cart-section">
-      <Link to="/cart" className="btn" onClick={handleAddSong}>
+    <section>
+      <Link to="/playlist" className="playlist-btn add" onClick={handleAddSong}>
         {toggleHeart ? <FaRegHeart /> : <FaHeart />}
       </Link>
     </section>
   );
 };
 
-export default AddToPlaylist;
+export default AddToPlayList;

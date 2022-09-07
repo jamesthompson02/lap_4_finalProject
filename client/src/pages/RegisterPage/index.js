@@ -14,7 +14,6 @@ const initialState = {
 };
 
 const RegisterPage = () => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.registeredUser.user);
@@ -22,11 +21,6 @@ const RegisterPage = () => {
   const showAlert = useSelector((state) => state.registeredUser.showAlert);
   const [values, setValues] = useState(initialState);
   const [checked] = useState(true);
-  // const [theme, setTheme] = useState(getStorageTheme());
-
-  // const toggleMember = () => {
-  //   setValues({ ...values, isMember: !values.isMember });
-  // };
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -71,12 +65,6 @@ const RegisterPage = () => {
       }, 2000);
     }
   }, [user, navigate]);
-
-  // useEffect(() => {
-  //   document.documentElement.className = theme;
-  //   localStorage.setItem("theme", theme);
-  // }, [theme]);
-
 
   const handlebackhome = () => {
     navigate("/");
@@ -196,4 +184,3 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
-
