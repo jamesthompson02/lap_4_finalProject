@@ -2,20 +2,28 @@
 // import MenuIcon from '@mui/icons-material/Menu';
 // import Btn from '../Btn';
 import './dashboard.css';
+import '../../components/Navbar/styles.css';
+import Navbar from '../../components/Navbar';
 import SearchForm from '../../components/SearchForm';
 import SongCard from '../../components/SongCard';
+
 // import { NavLink } from 'react-router-dom';
 
 const DashboardPage = () => {
+
      
     return (
         <>
-            <div>
+            <div className="dashboard-main-div">
+                <Navbar />
                 <h2 className='logo'>musica</h2>
-            </div>
-
+               
+        
             {/* form  */}
-            <SearchForm />
+            <div className='searchform-div'>
+                <SearchForm />
+            </div>
+            
             <div className='recommend-container'>
             <ul className="grid-container">
             <li className="grid-item">
@@ -33,12 +41,10 @@ const DashboardPage = () => {
             
             </ul>
          </div>
+         </div>
 
-
-        
         </>
-    );
+    )
+};
 
-    
-}
 export default DashboardPage;

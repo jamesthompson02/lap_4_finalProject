@@ -1,30 +1,19 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import { FormRow, Alert, Navbar } from "../../components";
+import { FormRow, Alert } from "../../components";
 import { displayAlert, registerUser, loginUser } from "../../actions";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./styles.css";
-
 
 const initialState = {
   username: "",
   email: "",
   password: "",
   isMember: true,
-
 };
 
-
 const RegisterPage = () => {
-
-  const getStorageTheme = () => {
-    let theme = "light-theme";
-    if (localStorage.getItem("theme")) {
-      theme = localStorage.getItem("theme");
-    }
-    return theme;
-  };
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -32,28 +21,33 @@ const RegisterPage = () => {
   const isLoading = useSelector((state) => state.registeredUser.isLoading);
   const showAlert = useSelector((state) => state.registeredUser.showAlert);
   const [values, setValues] = useState(initialState);
-  const [theme, setTheme] = useState(getStorageTheme());
-
-  const toggleTheme = () => {
-    if (theme === "dark-theme") {
-      setTheme("light-theme");
-    } else {
-      setTheme("dark-theme");
-    }
-  };
-
-  const toggleMember = () => {
-    setValues({ ...values, isMember: !values.isMember });
-  };
+  const [checked] = useState(true);
+ 
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    const { username, email, password, isMember } = values;
-    if (!username || !password || (!isMember && !email)) {
+    const { username, password } = values;
+    if (!username || !password) {
+      dispatch(displayAlert());
+      setTimeout(() => {
+        dispatch({
+          type: "CLEAR_ALERT",
+        });
+      }, 2000);
+      return;
+    }
+    const currentUser = { username, password };
+    dispatch(loginUser(currentUser));
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const { username, password, email } = values;
+    if (!username || !password || !email) {
       dispatch(displayAlert());
       setTimeout(() => {
         dispatch({
@@ -63,146 +57,139 @@ const RegisterPage = () => {
       return;
     }
     const currentUser = { username, email, password };
-    if (isMember) {
-      dispatch(loginUser(currentUser));
-    } else {
-      dispatch(registerUser(currentUser));
-    }
+    dispatch(registerUser(currentUser));
   };
 
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate("/profile");
+        navigate("/dashboard");
       }, 2000);
     }
   }, [user, navigate]);
 
-  useEffect(() => {
-    document.documentElement.className = theme;
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   document.documentElement.className = theme;
+  //   localStorage.setItem("theme", theme);
+  // }, [theme]);
 
 
   const handlebackhome = () => {
-        navigate("/");
-  }
+    navigate("/");
+  };
 
-     
-    return (
-      <>
-      <div className='main-div-login'>
-      <div className='headerLogin'>
-        <h2 className='logo'>musica</h2>
-      </div>
-      {/* login page form */}
-      <div className="login-wrap">
-    <div className="login-html">
-      <input id="tab-1" type="radio" name="tab" className="sign-in" checked/><label for="tab-1" className="tab">Sign In</label>
-      <input id="tab-2" type="radio" name="tab" className="sign-up"/><label for="tab-2" className="tab">Sign Up</label>
-      <div className="login-form">
-        <div className="sign-in-htm">
-          <div className="group">
-            <label for="user" className="label">Username</label>
-            <input id="user" type="text" className="input"/>
-          </div>
-          <div className="group">
-            <label for="pass" className="label">Password</label>
-            <input id="pass" type="password" className="input" data-type="password"/>
-          </div>
-  
-          <div className="group">
-            <input type="submit" className="btn-signin" value="Sign In"/>
-            <button className='glow-on-hover-login' onClick={handlebackhome}> Back To HomePage </button>
-          </div>
-          <div className="hr"></div>
+  return (
+    <>
+      <div className="main-div-login">
+        <div className="headerLogin">
+          <h2 className="logo">musica</h2>
         </div>
-        <div className="sign-up-htm">
-          <div className="group">
-            <label for="user" className="label">Username</label>
-            <input id="user" type="text" className="input"/>
+        {showAlert && <Alert />}
+        {/* login page form */}
+        <div className="login-wrap">
+          <div className="login-html">
+            <input
+              id="tab-1"
+              type="radio"
+              name="tab"
+              className="sign-in"
+              defaultChecked={checked}
+            />
+            <label htmlFor="tab-1" className="tab">
+              Sign In
+            </label>
+            <input id="tab-2" type="radio" name="tab" className="sign-up" />
+            <label htmlFor="tab-2" className="tab">
+              Sign Up
+            </label>
+            <div className="login-form">
+              <div className="sign-in-htm">
+                <div className="group">
+                  {/* username input */}
+                  <FormRow
+                    type="text"
+                    name="username"
+                    value={values.username}
+                    htmlFor="username"
+                    handleChange={handleChange}
+                  />
+                </div>
+                <div className="group">
+                  {/* password input */}
+                  <FormRow
+                    type="password"
+                    name="password"
+                    value={values.password}
+                    htmlFor="password"
+                    handleChange={handleChange}
+                  />
+                </div>
+                <div className="group">
+                  <input
+                    type="submit"
+                    disabled={isLoading}
+                    onClick={handleLogin}
+                    className="btn-signin"
+                    value="Sign In"
+                  />
+                  <button
+                    className="glow-on-hover-login"
+                    onClick={handlebackhome}
+                  >
+                    {" "}
+                    Back To HomePage{" "}
+                  </button>
+                </div>
+                <div className="hr"></div>
+              </div>
+              <div className="sign-up-htm">
+                <div className="group">
+                  {/* username input */}
+                  <FormRow
+                    type="text"
+                    name="username"
+                    value={values.username}
+                    htmlFor="username"
+                    handleChange={handleChange}
+                  />
+                </div>
+                <div className="group">
+                  {/* password input */}
+                  <FormRow
+                    type="password"
+                    name="password"
+                    value={values.password}
+                    htmlFor="password"
+                    handleChange={handleChange}
+                  />
+                </div>
+                <div className="group">
+                  {/* email input */}
+                  <FormRow
+                    type="email"
+                    name="email"
+                    value={values.email}
+                    htmlFor="email"
+                    handleChange={handleChange}
+                  />
+                </div>
+                <div className="group">
+                  <input
+                    type="submit"
+                    disabled={isLoading}
+                    onClick={handleRegister}
+                    className="btn-signin"
+                    value="Sign Up"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="group">
-            <label for="pass" className="label">Password</label>
-            <input id="pass" type="password" className="input" data-type="password"/>
-          </div>
-          <div className="group">
-            <label for="pass" className="label">Repeat Password</label>
-            <input id="pass" type="password" className="input" data-type="password"/>
-          </div>
-          <div className="group">
-            <label for="pass" className="label">Email Address</label>
-            <input id="pass" type="text" className="input"/>
-          </div>
-          <div className="group">
-            <input type="submit" className="btn-signin" value="Sign Up"/>
-          </div>
-  
         </div>
       </div>
-    </div>
-  </div>
-  </div>
-  
-  
+    </>
+  );
+}
 
-  </>
-  )
-  }
-  export default RegisterPage;
-
-
-//   return (
-//     <div className="registerContainer">
-//       <div className="registerWrapper">
-//         <Navbar />
-//         <button className="btn" onClick={toggleTheme}>
-//           toggle
-//         </button>
-//         <form onSubmit={handleSubmit} className="form">
-//           <h3>{values.isMember ? "Login" : "Register"}</h3>
-//           {showAlert && <Alert />}
-//           <div className="align">
-//             {/* username input */}
-//             <FormRow
-//               type="text"
-//               name="username"
-//               value={values.username}
-//               htmlFor="username"
-//               handleChange={handleChange}
-//             />
-
-//             {/* email input */}
-//             {!values.isMember && (
-//               <FormRow
-//                 type="email"
-//                 name="email"
-//                 value={values.email}
-//                 htmlFor="email"
-//                 handleChange={handleChange}
-//               />
-//             )}
-//             {/* password input */}
-//             <FormRow
-//               type="password"
-//               name="password"
-//               value={values.password}
-//               htmlFor="password"
-//               handleChange={handleChange}
-//             />
-//           </div>
-//           <button disabled={isLoading} type="submit" className="btn">
-//             Submit
-//           </button>
-//           <p>
-//             {values.isMember ? "Not a member yet?" : "Already a member?"}
-//             <button type="button" onClick={toggleMember} className="btn">
-//               {values.isMember ? "Register" : "Login"}
-//             </button>
-//           </p>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// };
+export default RegisterPage;
 
