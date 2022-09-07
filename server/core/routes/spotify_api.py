@@ -134,6 +134,8 @@ def get_spotify_recommendations():
     recommendations_request_json = recommendations_request.json()
 
     return jsonify(recommendations_request_json)
+
+
     
 @spotify_api.route('/reccard', methods=["POST"])
 def get_spotify_reccard_details():
@@ -157,6 +159,7 @@ def get_spotify_reccard_details():
     API_headers = {
         "Authorization": "Bearer " + f"{access_token}"
     }
+
     API_url = "https://api.spotify.com/v1/search?"
 
     data = {
@@ -180,29 +183,46 @@ def get_spotify_reccard_details():
 
     artist_data = spotify_results_json["artists"]["items"]
     track_data = spotify_results_json["tracks"]["items"]
-    print(artist_data, track_data)
 
-    return jsonify(spotify_results_json)
+    return jsonify(artist_data, track_data)
 
-    # follower_array = []
-    # for each in artist_data:
-    #     follower_array.append(each["followers"]["total"])
-    # index_for_track_and_artist = follower_array.index(max(follower_array))
 
-    #The next batch of code relates to extracting the relevant info needed to make an API call
-    # to the spotify recommendations endpoint. Based on the info we extract here, we will get back 
-    # 3 results which have been recommended by Spotify.
 
-    # artist_spotify_id = artist_data[index_for_track_and_artist]["id"]
-    # album_name = track_data[index_for_track_and_artist]["album"]["name"]
-    # album_url = track_data[index_for_track_and_artist]["album"]["images"][0]["url"]
-    # track_spotify_id = track_data[index_for_track_and_artist]["id"]
-    # artist_genres = artist_data[index_for_track_and_artist]["genres"]
-    # if len(artist_genres) > 3:
-    #     artist_genres = artist_genres[:3]
-    # artist_genres = ", ".join(str(x) for x in artist_genres)
-    
-    # return jsonify(artist_spotify_id, track_spotify_id, artist_genres, album_name, album_url)
+@spotify_api.route('/artistinfo', methods=["POST"])
+def get_spotify_artist_genres():
+
+    details = request.json
+    artist_spotify_id = details["artistSpotify"]
+
+    access_token_url = "https://accounts.spotify.com/api/token"
+    client_creds = f"{client_id}:{client_secret}"
+    client_creds_b64 = base64.b64encode(client_creds.encode())
+    headers = {
+        "Authorization": "Basic " + f"{client_creds_b64.decode()}",
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    r = requests.post(access_token_url, 'grant_type=client_credentials', headers=headers)
+    r_json = r.json()
+    access_token = r_json.get("access_token")
+
+    API_headers = {
+        "Authorization": "Bearer " + f"{access_token}"
+    }
+
+    API_url = "	https://api.spotify.com/v1/artists/"
+
+    API_url += artist_spotify_id
+
+    spotify_request = requests.get(API_url, headers=API_headers)
+    spotify_results_json = spotify_request.json()
+    genres = spotify_results_json["genres"]
+    if len(genres) > 3:
+        genres = genres[:3]
+    genres = ", ".join(str(x) for x in genres)
+
+
+
+    return jsonify(genres)
 
 
    

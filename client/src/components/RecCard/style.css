@@ -19,6 +19,7 @@
     background-color: rgb(55, 54, 54);
     transform: scale(1.05);
     box-shadow: 15px;
+    cursor: pointer;
 }
 
 .image-container2{
