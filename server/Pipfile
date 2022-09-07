@@ -20,6 +20,10 @@ webdriver-manager = "*"
 beautifulsoup4 = "*"
 pytube = "*"
 lxml = "*"
+psycopg2 = "*"
+colorama = "*"
+psycopg2 = "*"
+
 
 [dev-packages]
 pytest = "*"
@@ -34,3 +38,5 @@ dev = "flask run -p 7777"
 test = "pytest ."
 coverage = "pytest --cov-report term-missing --cov=."
 start = "gunicorn core:app --bind=127.0.0.1:8000"
+startw = "waitress-serve --host 127.0.0.1 --port 8000 core:app"
+
