@@ -6,11 +6,17 @@ import '../../components/Navbar/styles.css';
 import Navbar from '../../components/Navbar';
 import SearchForm from '../../components/SearchForm';
 import SongCard from '../../components/SongCard';
-
+//import LoadingSpinner from '../../components/LoadingSpinner';
+import { useState } from 'react';
 // import { NavLink } from 'react-router-dom';
 
 const DashboardPage = () => {
 
+//   const [loading, setloading] = useState(false);
+  
+//   if(loading) {
+//     return <LoadingSpinner />
+// }
      
     return (
         <>
