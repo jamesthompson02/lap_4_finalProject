@@ -22,7 +22,6 @@ pytube = "*"
 lxml = "*"
 psycopg2 = "*"
 colorama = "*"
-psycopg2 = "*"
 
 
 [dev-packages]
