@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import axios from 'axios';
 import Btn from '../Btn';
 import '../../pages/DashboardPage/dashboard.css';
+import LoadingSpinner from '../LoadingSpinner';
 import { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -57,18 +58,6 @@ const SearchForm = () => {
         } catch(err){
             alert(err);
         }
-
-    }
-
-    
-    const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        setLoading(true)
-        setTimeout(() => {
-          setLoading(false)  
-        }, 8000)
-    }, [])
    
     return (
         <div className="dashForm">
@@ -100,8 +89,8 @@ const SearchForm = () => {
 
         </div>
 
-    );
+    )
 
-    
-}
+};
+
 export default SearchForm;

@@ -13,6 +13,9 @@ const LoadingSpinner = () => {
   <span>♪</span>
   <span>♬</span>
   <span>♪</span>
+  <div>
+  <h2 className="loading-spinner-txt">Loading...</h2>
+  </div>
 </div>
     </div>
   )
