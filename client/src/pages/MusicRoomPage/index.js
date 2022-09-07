@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import RoomTitleCard from '../../components/RoomTitleCard';
 import axios from 'axios';
 import RecContainer from '../../components/RecContainer';
+import LyricComponent from '../../components/LyricComponent';
 
 const MusicRoomPage = () => {
 
@@ -18,6 +19,7 @@ const MusicRoomPage = () => {
     return (
         <div>
             <RoomTitleCard />
+            <LyricComponent />
             <RecContainer />
             
         </div>

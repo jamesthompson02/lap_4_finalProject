@@ -20,6 +20,7 @@ webdriver-manager = "*"
 beautifulsoup4 = "*"
 pytube = "*"
 lxml = "*"
+psycopg2 = "*"
 
 [dev-packages]
 pytest = "*"
