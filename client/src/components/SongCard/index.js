@@ -35,7 +35,7 @@ function SongCard({ title, artist, albumArtUrl, album }) {
       dispatch(updateAlbumName(album));
       dispatch(updateAlbumUrl(albumArtUrl));
       const { data } = await axios.post(
-        "https://fast-gorge-25731.herokuapp.com/spotify",
+        "https://fast-gorge-25731.herokuapp.com/spotify/",
         {
           songName: title,
           artistName: artist,

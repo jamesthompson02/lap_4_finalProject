@@ -42,7 +42,6 @@ app.register_blueprint(auth_routes, url_prefix='/auth')
 app.register_blueprint(lyrics_routes, url_prefix='/lyrics') 
 app.register_blueprint(spotify_api, url_prefix='/spotify')
 
-## Main
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -29,7 +29,7 @@ const LyricComponent = () => {
     useEffect(() => {
         const getLyrics = async () => {
             const newLyricArr = [];
-            const { data } = await axios.post("http://localhost:8000/lyrics/", {
+            const { data } = await axios.post("https://fast-gorge-25731.herokuapp.com/lyrics/", {
                 "songName": trackName,
                 "artistName": artistName
             })
