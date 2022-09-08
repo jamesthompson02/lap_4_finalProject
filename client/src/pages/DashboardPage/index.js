@@ -20,10 +20,7 @@ const DashboardPage = () => {
 
     return (
         <>
-            <div className="dashboard-main-div">
-
-                <Navbar />
-
+            <div>
                 {/* form  */}
                 <div className='searchform-div'>
                     <SearchForm />

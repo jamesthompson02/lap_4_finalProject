@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import Navbar from '../../components/Navbar';
 import RoomTitleCard from '../../components/RoomTitleCard';
 import axios from 'axios';
 import RecContainer from '../../components/RecContainer';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import LyricComponent from '../../components/LyricComponent';
-
+import './musicRoom.css'
 
 const MusicRoomPage = () => {
     const loading = useSelector((state) => state.search.loading);
@@ -25,11 +25,10 @@ const MusicRoomPage = () => {
 
 
     return (
-        <div>
+        <div className='music-room-main-div'>
             <RoomTitleCard />
             <LyricComponent />
-            <RecContainer />
-            
+            <RecContainer />            
         </div>
     );
 }

@@ -1,0 +1,6 @@
+.music-room-main-div{
+    background: linear-gradient( #000000 50%, #49236D 90%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
