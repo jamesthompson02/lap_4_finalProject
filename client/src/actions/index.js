@@ -20,7 +20,7 @@ export const registerUser = (currentUser) => {
     try {
       dispatch({ type: "REGISTER_USER_BEGIN" });
       const { data } = await axios.post(
-        `https://fast-gorge-25731.herokuapp.com/register`,
+        `https://fast-gorge-25731.herokuapp.com/auth/register`,
         currentUser
       );
       console.log(data);
@@ -49,7 +49,7 @@ export const loginUser = (currentUser) => {
     try {
       dispatch({ type: "LOGIN_USER_BEGIN" });
       const { data } = await axios.post(
-        `https://fast-gorge-25731.herokuapp.com/login`,
+        `https://fast-gorge-25731.herokuapp.com/auth/login`,
         currentUser
       );
       console.log(data);
