@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import Btn from "../Btn";
 import "../../pages/DashboardPage/dashboard.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import LoadingSpinner from '../LoadingSpinner';
 import {
   updateArtist,
   updateGenres,
@@ -15,6 +16,7 @@ import {
   updateAlbumName,
   updateAlbumUrl,
 } from "../../actions";
+
 
 const SearchForm = () => {
   const navigator = useNavigate();

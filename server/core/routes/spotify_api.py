@@ -6,6 +6,7 @@ import requests
 import base64   
 from urllib.parse import urlencode
 
+
 load_dotenv()
 
 client_id = environ.get('client_id')

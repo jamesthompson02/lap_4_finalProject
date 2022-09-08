@@ -16,6 +16,7 @@ import {
 } from "../../actions";
 import AddToPlayList from "../AddToPlayList";
 
+
 function SongCard({ title, artist, albumArtUrl, album }) {
   const navigator = useNavigate();
 

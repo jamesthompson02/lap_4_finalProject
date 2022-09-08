@@ -26,7 +26,7 @@ def token_required(func):
         try:
             user_data = jwt.decode(token, app.config["SECRET_KEY"], algorithms=[
                                    "HS256"])  # get decoded user data
-            current_user = User.query.filter_by(
+            current_user = Useraccount.query.filter_by(
                 username=user_data["username"]).first()
         except:
             return jsonify({"msg": "Invalid token."}), 401  # unauthorized
