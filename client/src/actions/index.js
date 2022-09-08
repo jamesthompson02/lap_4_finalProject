@@ -20,7 +20,7 @@ export const registerUser = (currentUser) => {
     try {
       dispatch({ type: "REGISTER_USER_BEGIN" });
       const { data } = await axios.post(
-        `http://localhost:7777/auth/register`,
+        `https://fast-gorge-25731.herokuapp.com/register`,
         currentUser
       );
       console.log(data);
@@ -49,7 +49,7 @@ export const loginUser = (currentUser) => {
     try {
       dispatch({ type: "LOGIN_USER_BEGIN" });
       const { data } = await axios.post(
-        `http://localhost:7777/auth/login`,
+        `https://fast-gorge-25731.herokuapp.com/login`,
         currentUser
       );
       console.log(data);
@@ -81,88 +81,106 @@ export const logoutUser = () => {
 };
 
 export const updateArtist = (artistName) => {
-    return {
-        type: "UPDATE ARTIST",
-        payload: artistName
-    }
-}
+  return {
+    type: "UPDATE ARTIST",
+    payload: artistName,
+  };
+};
 
 export const updateArtistSpotifyURI = (artistSpotifyIdentifier) => {
-    return {
-        type: "UPDATE ARTIST SPOTIFY URI",
-        payload: artistSpotifyIdentifier
-    }
-}
+  return {
+    type: "UPDATE ARTIST SPOTIFY URI",
+    payload: artistSpotifyIdentifier,
+  };
+};
 
 export const updateTrack = (trackName) => {
-    return {
-        type: "UPDATE TRACK",
-        payload: trackName
-    }
-}
+  return {
+    type: "UPDATE TRACK",
+    payload: trackName,
+  };
+};
 
 export const updateTrackSpotifyURI = (trackSpotifyIdentifier) => {
-    return {
-        type: "UPDATE TRACK SPOTIFY URI",
-        payload: trackSpotifyIdentifier
-    }
-}
+  return {
+    type: "UPDATE TRACK SPOTIFY URI",
+    payload: trackSpotifyIdentifier,
+  };
+};
 
 export const updateGenres = (genres) => {
-    return {
-        type: "UPDATE GENRES",
-        payload: genres
-    }
-}
+  return {
+    type: "UPDATE GENRES",
+    payload: genres,
+  };
+};
 
 export const updateAlbumName = (name) => {
   return {
-      type: "UPDATE ALBUM NAME",
-      payload: name
-  }
-}
+    type: "UPDATE ALBUM NAME",
+    payload: name,
+  };
+};
 
 export const updateAlbumUrl = (url) => {
   return {
-      type: "UPDATE ALBUM URL",
-      payload: url
-  }
-}
+    type: "UPDATE ALBUM URL",
+    payload: url,
+  };
+};
 
 export const updateFromLanguage = (language) => {
-    return {
-        type: "UPDATE FROM LANGUAGE",
-        payload: language
-    }
-}
+  return {
+    type: "UPDATE FROM LANGUAGE",
+    payload: language,
+  };
+};
 
 export const updateToLanguage = (language) => {
-    return {
-        type: "UPDATE TO LANGUAGE",
-        payload: language
-    }
-}
-
-
+  return {
+    type: "UPDATE TO LANGUAGE",
+    payload: language,
+  };
+};
 
 export const loading = (loadingStatus) => {
-    return {
-        type: "LOADING",
-        payload: loadingStatus
-    }
-}
+  return {
+    type: "LOADING",
+    payload: loadingStatus,
+  };
+};
 
 export const loaded = (loadingStatus) => {
-    return {
-        type: "LOADED",
-        payload: loadingStatus
-    }
-}
+  return {
+    type: "LOADED",
+    payload: loadingStatus,
+  };
+};
 
 export const errorMesage = (message) => {
-    return {
-        type: "SET ERROR",
-        payload: message
-    }
-}
+  return {
+    type: "SET ERROR",
+    payload: message,
+  };
+};
 
+export const addToPlaylist = ({ id, title, artist, albumArtUrl, album }) => {
+  const newSong = { id, title, artist, albumArtUrl, album };
+  return {
+    type: "ADD_TO_PLAYLIST",
+    payload: newSong,
+  };
+};
+
+export const removeSong = (id) => {
+  return {
+    type: "REMOVE_SONG",
+    payload: id,
+  };
+};
+
+export const clearPlaylist = () => {
+  return {
+    type: "CLEAR_PLAYLIST",
+  };
+};

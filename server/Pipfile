@@ -26,6 +26,7 @@ colorama = "*"
 
 [dev-packages]
 pytest = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.10"
@@ -34,5 +35,6 @@ python_version = "3.10"
 init_db = "python init_db.py"
 dev = "flask run -p 7777"
 start = "gunicorn core:app --bind=127.0.0.1:8000"
+test = "pytest core/tests --disable-warnings"
+coverage = "pytest --cov-report term-missing --cov=."
 startw = "waitress-serve --host 127.0.0.1 --port 8000 core:app"
-

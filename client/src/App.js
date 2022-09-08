@@ -10,6 +10,7 @@ function App() {
       <Route path="/register" element={<Pages.RegisterPage />} />
       <Route path="/logout" element={<Pages.LogoutPage />} />
       <Route path="/room/:id" element={<Pages.MusicRoomPage />} />
+      <Route path="/playlist" element={<Pages.PlaylistPage />} />
       <Route path="*" element={<Pages.NotFoundPage />} />
     </Routes>
   );

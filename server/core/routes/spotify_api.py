@@ -15,7 +15,7 @@ client_secret=environ.get('client_secret')
 spotify_api = Blueprint('spotify_api', __name__)
 
 @spotify_api.route('/', methods=["POST"])
-@cross_origin(origin='*')
+@cross_origin()
 def get_spotify_details():
     #The following bit of code relates to ensuring that data is received properly from 
     #the front end. 
@@ -82,8 +82,10 @@ def get_spotify_details():
     if len(artist_genres) > 3:
         artist_genres = artist_genres[:3]
     artist_genres = ", ".join(str(x) for x in artist_genres)
-    
+
+    # return jsonify(artist_spotify_id, track_spotify_id, artist_genres).headers.add('Access-Control-Allow-Origin', '*')
     return jsonify(artist_spotify_id, track_spotify_id, artist_genres, album_name, album_url)
+
 
 @spotify_api.route('/recommendations', methods=["POST"])
 @cross_origin(origin='*')
