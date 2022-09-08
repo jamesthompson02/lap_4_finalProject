@@ -13,6 +13,7 @@ import {
   updateToLanguage,
   updateAlbumName,
   updateAlbumUrl,
+  loading
 } from "../../actions";
 
 const RecCard = ({ title, titleId, artist, artistId, albumArtUrl, album }) => {
@@ -50,6 +51,7 @@ const RecCard = ({ title, titleId, artist, artistId, albumArtUrl, album }) => {
     dispatch(updateToLanguage("Spanish"));
     dispatch(updateAlbumName(album));
     dispatch(updateAlbumUrl(albumArtUrl));
+    dispatch(loading(true))
     let newString = "";
     newString += title;
     newString += artist;

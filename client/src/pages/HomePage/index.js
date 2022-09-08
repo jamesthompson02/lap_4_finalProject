@@ -29,62 +29,52 @@ const HomePage = () => {
   return (
     <>
 
-    <div className='mainContainer'> 
-    <div className='header'>
-      <h2 className='logo'>musica</h2>
-    </div>
- 
+      <div className='mainContainer'>
+        <div className='header'>
+          <h2 className='logo'>musica</h2>
+        </div>
 
-      <div className='app-desc'> 
-      <div className="musicnotes">
-                <div className="note-1">
-                  ♬
-                </div>
-                <div className="note-2">
-                  ♬
-                </div>
-                <div className="note-3">
-                  #
-                </div>
-                <div className="note-5">
-                 ♬
-                </div>
-                <div className="note-6">
-                  ♬
-                </div>
+
+        <div className='app-desc'>
+          <div className="musicnotes">
+            <div className="note-1">
+              ♬
+            </div>
+            <div className="note-2">
+              ♬
+            </div>
+            <div className="note-3">
+              #
+            </div>
+            <div className="note-5">
+              ♬
+            </div>
+            <div className="note-6">
+              ♬
+            </div>
           </div>
-            <img className='discImg' src= {vin3}alt='musicdiscimg' /> 
-          
-          
-        <section className="mid-div">
-          <div className="sentence">
-            <p id="motto">A Music App Where You Can</p>
+          <img className='discImg' src={vin3} alt='musicdiscimg' />
+
+
+          <section className="mid-div">
+            <div className="sentence">
+              <p id="motto">A Music App Where You Can</p>
             </div>
             <div className="words-rotate">
-          
+
               <span>Chill !</span>
               <span>Inspire !</span>
               <span>Relax !</span>
               <span>Party !</span>
             </div>
-          
-        </section>
-        <div className='get-started-btn'>
-          <button className='glow-on-hover' onClick={handleclick}> Get Started</button>
-          </div>  
-      </div>   
-      
-      <div className='homePage-footer'>
-            <p id="home-footer-text">All Rights Reserved | musica 2022</p>
+
+          </section>
+          <div className='get-started-btn'>
+            <button className='glow-on-hover' onClick={handleclick}> Get Started</button>
+          </div>
+        </div>
       </div>
-      </div>
-      <div className="startBtn">
-        <button className="glow-on-hover" onClick={handleclick}>
-          {" "}
-          Get Started
-        </button>
-      </div>
-      <div className="footer">All Rights Reserved | musica 2022</div>
+
     </>
   );
 };

@@ -1,6 +1,6 @@
 .card-container1{
     /* padding: 30px; */
-    margin: 15px;
+    margin: 0 auto;
     padding: 10px;
     overflow: hidden;
     box-shadow: 0px 0px 20px -5px !important;
@@ -12,7 +12,7 @@
     min-height: 100px;
     display: flex;
     width: 300px;
-    
+    align-items: center;
 }
 
 .card-container1:hover{

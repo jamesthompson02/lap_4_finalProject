@@ -8,13 +8,15 @@
   top: 36px;
 }
 
-.logo {
+.logo-navbar {
   font-family: 'Roboto', sans-serif;
-  display: inline-block;
-  padding-top: 15px;
-  margin-left: 5%;
+  position: absolute;
+  display: inline;
+  top: 20px;
+  left: 36px;
   color: white;
   font-size: 2.5rem;
+  font-weight: bold;
 }
 
 /* Color/shape of burger icon bars */
@@ -87,7 +89,8 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .bm-item:hover {
-  color: rgb(255, 255, 0);
+  color: #49236D;
+  font-weight: bold;
 }
 
 .main-div{
@@ -95,4 +98,14 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+.topbar {
+  height: 80px;
+}
+
+.content-restriction-box {
+  max-width: 800px;
+  margin: 0px auto;
 }

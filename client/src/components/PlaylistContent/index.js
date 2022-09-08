@@ -15,34 +15,41 @@ const PlaylistContent = () => {
 
   return (
     <main className="section section-center">
+      
+      <div className="grid-container">
       {playlist &&
         playlist.map((item) => {
           return (
-            <div className="card-container" key={item.id}>
-              <div className="image-container">
-                <img className="img1" src={item.albumArtUrl} alt="albumart" />
+            <div className="grid-item">
+              <div className="card-container" key={item.id}>
+                <div className="image-container">
+                  <img className="img1" src={item.albumArtUrl} alt="albumart" />
+                </div>
+                <div className="card-content">
+                  <div className="song-title">
+                    <div>{item.title}</div>
+                  </div>
+                  <div className="song-artist">
+                    <div>{item.artist}</div>
+                  </div>
+                  <div className="Album">
+                    <div>{item.album}</div>
+                  </div>
+                </div>
               </div>
-              <div className="card-content">
-                <div className="song-title">
-                  <h2>{item.title}</h2>
-                </div>
-                <div className="song-artist">
-                  <h4>{item.artist}</h4>
-                </div>
-                <div className="Album">
-                  <h3>{item.album}</h3>
-                </div>
+              <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+                <button
+                  className="playlist-btn"
+                  onClick={() => dispatch(removeSong(item.id))}
+                >
+                  Delete
+                </button>
               </div>
-              <button
-                className="playlist-btn"
-                onClick={() => dispatch(removeSong(item.id))}
-              >
-                Delete
-              </button>
             </div>
           );
         })}
-      <hr />
+      </div>
+      <hr style={{ 'margin': '30px 0'}}/>
       <div className="playlist-btn-container">
         <Link to="/dashboard" className="playlist-btn dashboard">
           Back to dashboard

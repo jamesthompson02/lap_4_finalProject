@@ -77,7 +77,7 @@ const RecContainer = () => {
   }
 
   return (
-    <div>
+    <div style={{padding: '20px', margin: '0 auto'}}>
       <h2 style={{ color: "white" }}>Because you liked: {trackName}</h2>
       <div style={{ color: "white" }}>
         {recommendedSongs.length > 0

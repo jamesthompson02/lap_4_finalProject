@@ -71,24 +71,25 @@ function SongCard({ title, artist, albumArtUrl, album }) {
         </div>
         <div className="card-content">
           <div className="song-title">
-            <h2>{title}</h2>
+            <div>{title}</div>
           </div>
           <div className="song-artist">
-            <h4>{artist}</h4>
+            <div>{artist}</div>
           </div>
           <div className="Album">
-            <h3>{album}</h3>
+            <div>{album}</div>
           </div>
+          
         </div>
       </div>
-      <div>
+      <div className="dashboard-save-button">
         <AddToPlayList
-          id={id}
-          title={title}
-          artist={artist}
-          albumArtUrl={albumArtUrl}
-          album={album}
-        />
+              id={id}
+              title={title}
+              artist={artist}
+              albumArtUrl={albumArtUrl}
+              album={album}
+            />
       </div>
     </>
   );

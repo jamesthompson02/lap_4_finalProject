@@ -8,7 +8,6 @@ function App() {
       <Route path="/" element={<Pages.HomePage />} />
       <Route path="/" element={<Navbar />}>
         <Route path="/dashboard" element={<Pages.DashboardPage />} />
-        <Route path="/profile" element={<Pages.ProfilePage />} />
         <Route path="/room/:id" element={<Pages.MusicRoomPage />} />
         <Route path="/playlist" element={<Pages.PlaylistPage />} />
       </Route>

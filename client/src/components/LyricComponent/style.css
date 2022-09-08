@@ -1,18 +1,62 @@
 .english-lyric {
-    color: red
-  }
-  
-  .spanish-lyric {
-    color: orange
-  }
-  
-  #myDIV {
-    height: 500px;
-    width: auto;
-    overflow-y: scroll;
-  }
-  
-  #content {
-    height: 2000px;  
-    transition: all 0.2s;
-  }
+  color: white
+}
+
+.spanish-lyric {
+  color: plum
+}
+
+#myDIV {
+  height: 500px;
+  width: auto;
+  overflow-y: scroll;
+}
+
+#content {
+  height: 2000px;  
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.2s;
+}
+
+#teleprompter-group {    
+  padding: 30px;
+  background-color: rgb(30, 29, 29);
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px -5px white;
+  margin: 0px auto;
+}
+
+.teleprompter-button-group {
+  display: flex;
+  padding-bottom: 20px;
+  align-items: center; 
+}
+
+.teleprompter-lyrics-title-text {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.teleprompter-button {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  padding-top: 3px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.key-content-from-lyrics-api{
+  padding: 20px;
+}
+
+#youtube-embed-box{
+  height: 300px;
+}

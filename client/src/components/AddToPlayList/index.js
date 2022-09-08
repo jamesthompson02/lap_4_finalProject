@@ -26,11 +26,11 @@ const AddToPlayList = ({ id, title, artist, album, albumArtUrl }) => {
       >
         {toggleHeart ? (
           <>
-            <FaHeart /> <span>Saved</span>
+            <FaHeart /> <span style={{'paddingLeft': '5px'}}>Saved</span>
           </>
         ) : (
           <>
-            <FaRegHeart /> <span>Save</span>
+            <FaRegHeart /> <span style={{'paddingLeft': '5px'}}>Save</span>
           </>
         )}
       </button>

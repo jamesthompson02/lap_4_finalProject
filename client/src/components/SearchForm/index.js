@@ -15,6 +15,7 @@ import {
   updateToLanguage,
   updateAlbumName,
   updateAlbumUrl,
+  loading
 } from "../../actions";
 
 
@@ -60,6 +61,7 @@ const SearchForm = () => {
       dispatch(updateToLanguage(toLanguage.current.value));
       dispatch(updateAlbumName(albumName));
       dispatch(updateAlbumUrl(albumUrl));
+      dispatch(loading(true))
       let newString = "";
       newString += songNameInput.current.value;
       newString += artistNameInput.current.value;
@@ -67,13 +69,14 @@ const SearchForm = () => {
       navigator(`../room/${urlencode}`, { replace: true });
     } catch (err) {
       alert(err);
+      dispatch(loading(false))
     }
   };
 
   return (
     <div className="dashForm">
       <form>
-        <div>
+        <div id="search-feature-display">
           {/* <label htmlFor='songName'>Song Name:</label> */}
           <input
             ref={songNameInput}
@@ -94,14 +97,14 @@ const SearchForm = () => {
         </div>
         <div className="chooselang">
           <label className="fromTolabel" htmlFor="fromLanguage">
-            From:
+            From
           </label>
           <select ref={fromLanguage} name="fromLanguage" id="fromLanguage">
             <option value="English">English</option>
             <option value="Spanish">Spanish</option>
           </select>
           <label className="tolabel" htmlFor="toLanguage">
-            To:
+            To
           </label>
           <select ref={toLanguage} name="toLanguage" id="toLanguage">
             <option value="Spanish">Spanish</option>

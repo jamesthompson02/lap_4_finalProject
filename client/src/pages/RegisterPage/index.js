@@ -88,7 +88,7 @@ const RegisterPage = () => {
               defaultChecked={checked}
             />
             <label htmlFor="tab-1" className="tab">
-              Sign In
+              Log In
             </label>
             <input id="tab-2" type="radio" name="tab" className="sign-up" />
             <label htmlFor="tab-2" className="tab">
@@ -129,7 +129,7 @@ const RegisterPage = () => {
                     onClick={handlebackhome}
                   >
                     {" "}
-                    Back To HomePage{" "}
+                    Back{" "}
                   </button>
                 </div>
                 <div className="hr"></div>

@@ -17,17 +17,13 @@ const MusicRoomPage = () => {
     const genres = useSelector(state => state.search.genres)
     const fromLanguage = useSelector(state => state.search.fromLanguage);
     const toLanguage = useSelector(state => state.search.toLanguage);
-    
-    
-            if(loading) {
-                return <LoadingSpinner />
-            }
-
 
     return (
         <div className='music-room-main-div'>
             <RoomTitleCard />
+            <br></br>
             <LyricComponent />
+            <br></br>
             <RecContainer />            
         </div>
     );

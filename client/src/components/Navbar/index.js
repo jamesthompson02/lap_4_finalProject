@@ -8,27 +8,28 @@ const Navbar = () => {
 
   return (
     <div className="main-div">
-      <NavLink to={"/dashboard"}>
-        <h2 className='logo'>
-          musica
-        </h2>
-      </NavLink>
-      <Menu>
-        <NavLink to={"/dashboard"} className="menu-item">
-          Dashboard
+      <div className="topbar">
+        <NavLink to={"/dashboard"}>
+          <span className='logo-navbar'>
+            musica
+          </span>
         </NavLink>
-        {/* <NavLink to={"/profile"} className="menu-item">
-          Profile
-        </NavLink> */}
-        <NavLink to={"/playlist"} className="menu-item">
-          Playlist
-        </NavLink>
-        <NavLink to={"/logout"} className="menu-item">
-          Logout
-        </NavLink>
-      </Menu>
+        <Menu>
+          <NavLink to={"/dashboard"} className="menu-item">
+            Dashboard
+          </NavLink>
+          <NavLink to={"/playlist"} className="menu-item">
+            Playlist
+          </NavLink>
+          <NavLink to={"/logout"} className="menu-item">
+            Logout
+          </NavLink>
+        </Menu>
+      </div>
 
-      <Outlet />
+      <div className="content-restriction-box">
+        <Outlet />
+      </div>
     </div>
 
   )

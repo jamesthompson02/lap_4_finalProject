@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { logoutUser } from "../../actions";
 import { useDispatch } from "react-redux";
+import './styles.css'
 
 function LogoutPage() {
   const navigate = useNavigate();
@@ -16,13 +17,21 @@ function LogoutPage() {
     navigate("../register");
   };
 
+  const handleBackToDashboard = () => {
+    dispatch(logoutUser());
+    navigate("../dashboard");
+  };
+
   return (
     <>
       <div className="logoutContainer">
         <div className="logoutWrapper">
           <h1>Would You Like To Logout?</h1>
           <div>
-            <button onClick={handleLogout}>Logout</button>
+            <button className='btn-logout' onClick={handleLogout}>Logout</button>
+          </div>
+          <div>
+            <button className='btn-logout' onClick={handleBackToDashboard}>Back</button>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@
     min-height: 100px;
     display: flex;
     width: 300px;
-    
+    align-items: center;
 }
 
 .card-container2:hover{
