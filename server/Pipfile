@@ -20,7 +20,6 @@ webdriver-manager = "*"
 beautifulsoup4 = "*"
 pytube = "*"
 lxml = "*"
-psycopg2 = "*"
 colorama = "*"
 psycopg2 = "*"
 

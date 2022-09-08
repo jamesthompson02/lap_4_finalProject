@@ -22,7 +22,7 @@ const RegisterPage = () => {
   const showAlert = useSelector((state) => state.registeredUser.showAlert);
   const [values, setValues] = useState(initialState);
   const [checked] = useState(true);
- 
+
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });

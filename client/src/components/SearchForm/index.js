@@ -3,10 +3,10 @@ import axios from 'axios';
 import Btn from '../Btn';
 import '../../pages/DashboardPage/dashboard.css';
 import LoadingSpinner from '../LoadingSpinner';
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { updateArtist, updateGenres, updateTrack, updateArtistSpotifyURI, updateTrackSpotifyURI, updateFromLanguage, updateToLanguage, updateAlbumName, updateAlbumUrl} from '../../actions';
+import { updateArtist, updateGenres, updateTrack, updateArtistSpotifyURI, updateTrackSpotifyURI, updateFromLanguage, updateToLanguage, updateAlbumName, updateAlbumUrl } from '../../actions';
 
 
 const SearchForm = () => {
@@ -19,7 +19,7 @@ const SearchForm = () => {
     const artistNameInput = useRef();
     const fromLanguage = useRef();
     const toLanguage = useRef();
-  
+
     const test = async (e) => {
         e.preventDefault();
         if (songNameInput.current.value === "") {
@@ -54,21 +54,21 @@ const SearchForm = () => {
             newString += songNameInput.current.value;
             newString += artistNameInput.current.value;
             const urlencode = encodeURIComponent(newString)
-            navigator(`../room/${urlencode}`, { replace: true});
-        } catch(err){
+            navigator(`../room/${urlencode}`, { replace: true });
+        } catch (err) {
             alert(err);
         }
-   
+    }
     return (
         <div className="dashForm">
             <form>
                 <div className="song-fields">
                     {/* <label htmlFor='songName'>Song Name:</label> */}
-                    <input ref={songNameInput} type="text" id="songName" name="songName" placeholder='Enter Song Name Here'/>
-                
-                
+                    <input ref={songNameInput} type="text" id="songName" name="songName" placeholder='Enter Song Name Here' />
+
+
                     {/* <label htmlFor='artistName'>Artist Name:</label> */}
-                    <input ref={artistNameInput} type="text" id="songName" name="songName" placeholder='Enter Artist Name Here'/>
+                    <input ref={artistNameInput} type="text" id="songName" name="songName" placeholder='Enter Artist Name Here' />
                 </div>
                 <div className='chooselang'>
                     <label className='fromTolabel' htmlFor="fromLanguage">From:</label>
@@ -76,21 +76,17 @@ const SearchForm = () => {
                         <option value="English">English</option>
                         <option value="Spanish">Spanish</option>
                     </select>
-        
+
                     <label className='tolabel' htmlFor="toLanguage">To:</label>
                     <select ref={toLanguage} name="toLanguage" id="languageSelect">
                         <option value="Spanish">Spanish</option>
                         <option value="English">English</option>
-                    </select>    
+                    </select>
                 </div>
                 <div className='btn-div'><Btn text="Submit" handleClick={test} /></div>
-                
             </form>
-
         </div>
-
     )
-
 };
 
-export default SearchForm;
+export default SearchForm
