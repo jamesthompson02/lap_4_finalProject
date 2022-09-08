@@ -1,34 +1,34 @@
 import React from "react";
-import { useNavigate } from 'react-router';
-import vin3 from '../../images/vin3.png';
-import './styles.css';
+import { useNavigate } from "react-router";
+import vin3 from "../../images/vin3.png";
+import "./styles.css";
 
 const HomePage = () => {
-
   const navigate = useNavigate();
 
-const handleclick = () => {
-  navigate("/register")}
+  const handleclick = () => {
+    navigate("/register");
+  };
 
-  // lyrics para Get the prompter element 
-let prompter = document.querySelector('marquee');
-let state = 'start';
-/**
- * Control the prompter speed and scrolling
- * @param  {Event} event The event object
- */
-function controlPrompter (event) {
-	if (event.code && event.code !== 'Space') return;
-	state = state === 'start' ? 'stop' : 'start';
-	prompter[state]();
-}
-// Listen for keyup and click events
-document.addEventListener('keyup', controlPrompter);
-// prompter.addEventListener('click', controlPrompter);
+  // lyrics para Get the prompter element
+  let prompter = document.querySelector("marquee");
+  let state = "start";
+  /**
+   * Control the prompter speed and scrolling
+   * @param  {Event} event The event object
+   */
+  function controlPrompter(event) {
+    if (event.code && event.code !== "Space") return;
+    state = state === "start" ? "stop" : "start";
+    prompter[state]();
+  }
+  // Listen for keyup and click events
+  document.addEventListener("keyup", controlPrompter);
+  // prompter.addEventListener('click', controlPrompter);
 
-  return(
-
+  return (
     <>
+
     <div className='mainContainer'> 
     <div className='header'>
       <h2 className='logo'>musica</h2>
@@ -73,19 +73,20 @@ document.addEventListener('keyup', controlPrompter);
           <button className='glow-on-hover' onClick={handleclick}> Get Started</button>
           </div>  
       </div>   
-
-
       
       <div className='homePage-footer'>
             <p id="home-footer-text">All Rights Reserved | musica 2022</p>
       </div>
       </div>
-
-
-
-
-</>
-  ) 
+      <div className="startBtn">
+        <button className="glow-on-hover" onClick={handleclick}>
+          {" "}
+          Get Started
+        </button>
+      </div>
+      <div className="footer">All Rights Reserved | musica 2022</div>
+    </>
+  );
 };
 
 export default HomePage;

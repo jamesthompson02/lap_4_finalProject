@@ -1,0 +1,38 @@
+.playlist-section {
+  padding: 5rem 0;
+}
+
+.playlist-section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+.playlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.playlist-title {
+  color: beige;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.playlist-title.last {
+  margin-bottom: 2rem;
+}
+
+.playlist-btn {
+  background-color: bisque;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: blueviolet;
+  border: none;
+}

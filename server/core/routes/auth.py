@@ -63,7 +63,7 @@ def register():
             "exp": datetime.utcnow() + timedelta(days=7)
         }, app.config["SECRET_KEY"], algorithm="HS256") 
         
-        return jsonify({'msg': 'user successfully registered', 'user':new_user.username, "token":token}), 201
+        return jsonify({'msg': 'Successfully registered', 'user':new_user.username, "token":token}), 201
     except:
         return jsonify({'msg': 'registration unsuccessful'}), 400
 
@@ -86,10 +86,10 @@ def login():
             "exp": datetime.utcnow() + timedelta(days=7)
         }, app.config["SECRET_KEY"], algorithm="HS256")
 
-        # resource created
-           return jsonify({"msg": "Successfully logged in", "token": token}), 201
+        # successful login
+           return jsonify({"msg": "Successfully logged in", "token": token}), 200
     except:
-        return jsonify({"msg": "Incorrect password"}), 403  # forbidden
+        return jsonify({"msg": "Incorrect credentials"}), 403  # forbidden
 
 # to check registered users
 @auth_routes.route('/users', methods=['GET'])
