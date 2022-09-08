@@ -48,6 +48,8 @@ const SearchForm = () => {
       const artistSpotifyId = data[0];
       const trackSpotifyId = data[1];
       const genres = data[2];
+      const albumName = data[3];
+      const albumUrl = data[4];
       console.log(artistSpotifyId, trackSpotifyId, genres);
       dispatch(updateArtist(artistNameInput.current.value));
       dispatch(updateTrack(songNameInput.current.value));
@@ -56,6 +58,8 @@ const SearchForm = () => {
       dispatch(updateTrackSpotifyURI(trackSpotifyId));
       dispatch(updateFromLanguage(fromLanguage.current.value));
       dispatch(updateToLanguage(toLanguage.current.value));
+      dispatch(updateAlbumName(albumName));
+      dispatch(updateAlbumUrl(albumUrl));
       let newString = "";
       newString += songNameInput.current.value;
       newString += artistNameInput.current.value;
