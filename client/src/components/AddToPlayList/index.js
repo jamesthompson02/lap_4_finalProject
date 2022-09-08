@@ -19,9 +19,21 @@ const AddToPlayList = ({ id, title, artist, album, albumArtUrl }) => {
   };
   return (
     <section>
-      <Link to="/playlist" className="playlist-btn add" onClick={handleAddSong}>
-        {toggleHeart ? <FaRegHeart /> : <FaHeart />}
-      </Link>
+      <button
+        type="button"
+        className="playlist-btn add"
+        onClick={handleAddSong}
+      >
+        {toggleHeart ? (
+          <>
+            <FaHeart /> <span>Saved</span>
+          </>
+        ) : (
+          <>
+            <FaRegHeart /> <span>Save</span>
+          </>
+        )}
+      </button>
     </section>
   );
 };

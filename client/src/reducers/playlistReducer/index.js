@@ -1,8 +1,17 @@
 const user = JSON.parse(localStorage.getItem("user"));
 const token = localStorage.getItem("token");
 
+const getLocalStorage = () => {
+  let playlist = localStorage.getItem("playlist");
+  if (playlist) {
+    return JSON.parse(localStorage.getItem("playlist"));
+  } else {
+    return [];
+  }
+};
+
 const initialState = {
-  playlist: [],
+  playlist: getLocalStorage(),
   isLoading: false,
   user: user ? user : null,
 };
@@ -11,6 +20,7 @@ const playlistReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_TO_PLAYLIST":
       const newSong = action.payload;
+      localStorage.setItem("playlist", JSON.stringify(state.playlist));
       return {
         ...state,
         playlist: [...state.playlist, newSong],
@@ -27,6 +37,7 @@ const playlistReducer = (state = initialState, action) => {
       };
 
     case "CLEAR_PLAYLIST":
+      localStorage.clear();
       return {
         ...state,
         playlist: [],

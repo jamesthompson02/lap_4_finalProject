@@ -5,7 +5,7 @@ from functools import wraps
 import jwt
 from datetime import datetime, timedelta
 from ..database.db import db
-from ..models.user import User
+from ..models.user import Useraccount
 
 auth_routes = Blueprint("auth", __name__)
 
@@ -43,7 +43,7 @@ def register():
         email = request.json['email']
         password = request.json['password']
 
-        user = User.query.filter_by(username=username).first()
+        user = Useraccount.query.filter_by(username=username).first()
 
         # checks for existing user with the same username
         if user!=None:
@@ -52,7 +52,7 @@ def register():
         # hashing user password with hashing method
         password = generate_password_hash(password, method='sha256')
 
-        new_user = User(username=username, email=email, password=password)
+        new_user = Useraccount(username=username, email=email, password=password)
 
         db.session.add(new_user)
         db.session.commit()
@@ -74,7 +74,7 @@ def login():
         username = request.json['username']
         password = request.json["password"]
         
-        user = User.query.filter_by(username=username).first()
+        user = Useraccount.query.filter_by(username=username).first()
         if not user:
             return jsonify({"msg": "No such user"}), 401  # unauthorized
         
@@ -94,7 +94,7 @@ def login():
 # to check registered users
 @auth_routes.route('/users', methods=['GET'])
 def get_all_users():
-    users = User.query.all()
+    users = Useraccount.query.all()
     result = []  
     for user in users:  
         user_data = {}  

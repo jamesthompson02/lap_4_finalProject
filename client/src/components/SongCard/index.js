@@ -33,12 +33,15 @@ function SongCard({ title, artist, albumArtUrl, album }) {
       const trackName = dispatch(updateTrack(title));
       dispatch(updateAlbumName(album));
       dispatch(updateAlbumUrl(albumArtUrl));
-      const { data } = await axios.post("http://localhost:8000/spotify/", {
-        songName: title,
-        artistName: artist,
-        fromLanguage: "English",
-        toLanguage: "Spanish",
-      });
+      const { data } = await axios.post(
+        "https://fast-gorge-25731.herokuapp.com/spotify",
+        {
+          songName: title,
+          artistName: artist,
+          fromLanguage: "English",
+          toLanguage: "Spanish",
+        }
+      );
       const artistSpotifyId = data[0];
       const trackSpotifyId = data[1];
       const genres = data[2];
@@ -60,20 +63,24 @@ function SongCard({ title, artist, albumArtUrl, album }) {
   let id = "id" + new Date().getTime();
 
   return (
-    <div className="card-container" onClick={test}>
-      <div className="image-container">
-        <img className="img1" src={albumArtUrl} alt="albumart" />
+    <>
+      <div className="card-container" onClick={test}>
+        <div className="image-container">
+          <img className="img1" src={albumArtUrl} alt="albumart" />
+        </div>
+        <div className="card-content">
+          <div className="song-title">
+            <h2>{title}</h2>
+          </div>
+          <div className="song-artist">
+            <h4>{artist}</h4>
+          </div>
+          <div className="Album">
+            <h3>{album}</h3>
+          </div>
+        </div>
       </div>
-      <div className="card-content">
-        <div className="song-title">
-          <h2>{title}</h2>
-        </div>
-        <div className="song-artist">
-          <h4>{artist}</h4>
-        </div>
-        <div className="Album">
-          <h3>{album}</h3>
-        </div>
+      <div>
         <AddToPlayList
           id={id}
           title={title}
@@ -82,7 +89,7 @@ function SongCard({ title, artist, albumArtUrl, album }) {
           album={album}
         />
       </div>
-    </div>
+    </>
   );
 }
 

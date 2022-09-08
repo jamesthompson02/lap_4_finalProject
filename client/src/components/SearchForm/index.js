@@ -34,12 +34,15 @@ const SearchForm = () => {
       return alert("Please ensure you have selected two different languages");
     }
     try {
-      const { data } = await axios.post("http://localhost:8000/spotify/", {
-        songName: songNameInput.current.value,
-        artistName: artistNameInput.current.value,
-        fromLanguage: fromLanguage.current.value,
-        toLanguage: toLanguage.current.value,
-      });
+      const { data } = await axios.post(
+        "https://fast-gorge-25731.herokuapp.com/spotify/",
+        {
+          songName: songNameInput.current.value,
+          artistName: artistNameInput.current.value,
+          fromLanguage: fromLanguage.current.value,
+          toLanguage: toLanguage.current.value,
+        }
+      );
       const artistSpotifyId = data[0];
       const trackSpotifyId = data[1];
       const genres = data[2];
