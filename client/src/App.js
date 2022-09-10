@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Navbar } from "./components";
-import * as Pages from "./pages";
+import * as Pages from "./pages"; //
 
 function App() {
   return (
