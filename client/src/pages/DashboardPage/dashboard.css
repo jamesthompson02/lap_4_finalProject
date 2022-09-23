@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard-main-div {
+    background: linear-gradient(#000000 50%, #49236D 90%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.searchform-div {
+    display: flex;
+    padding: 2vh;
+    margin: 5vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#songName {
+    margin: 2vh;
+    margin-right: 1vh;
+    padding: 1vh;
+    border-radius: 30px;
+    border: #3d1e5c 2px solid;
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+.chooselang {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vh;
+    background-color: black;
+    text-align: center;
+    color: white;
+    word-wrap: break-word;
+    gap: 8px;
+    align-items: center;
+}
+
+#languageSelect {
+    margin: 0 1vh 0 1vh;
+    border-radius: 30px;
+    border: #3d1e5c 2px solid;
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+
+.btn-div {
+    display: flex;
+    justify-content: center;
+
+}
+
+.grid-container {
+    margin-top: 5%;
+    display: grid;
+    gap: 12px;
+}
+
+.grid-item {
+    margin: 0 auto;
+}
+
+/* Screen larger than 600px? 2 column */
+@media (min-width: 400px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Screen larger than 900px? 3 columns */
+@media (min-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#search-feature-display {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 600px) {
+    #search-feature-display {
+      flex-direction: column;
+    }
+  }
+
+.chooselang select{
+    border-radius: 30px;
+    padding: 5px 20px;
+    border: #3d1e5c 2px solid;
+    background-color: black;
+    color: white;
+}
+.chooselang select{
+    border-radius: 30px;
+    padding: 5px 20px;
+    border: #3d1e5c 2px solid;
+    background-color: black;
+    color: white;
+}
+
+.chooselang option{
+    padding: 5px 20px;
+    border: #3d1e5c 2px solid;
+    background-color: black;
+    color: white;
+}
